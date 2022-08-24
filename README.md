@@ -106,7 +106,7 @@ Kemudian model dilakukan proses training dengan data yang telah diolah dan param
 Metrik yang akan digunakan merupakan `RMS Error` atau *Root Mean Squared Error*. Metrik ini menjelaskan selisih jarak antara hasil prediksi dengan nilai sebenarnya.
 Rumus dari RMSE ini dapat dilihat di bawah ini.
 
-$RMSE = \sqrt{\sum_{i=1}^{n} \frac{(y_i^{\prime} - y_i)^2}{n}}$
+<img width="564" alt="image" src="https://user-images.githubusercontent.com/56476347/186470142-0a577f95-fe41-4c42-a101-09654aea424d.png">
 
 Hasil training epoch ke-100 menunjukkan data seperti berikut ini.
 ```
@@ -119,7 +119,7 @@ Loss sebesar 0.6320 dengan RMSE sebesar 0.2412 didapatkan pada data testing.
 Hal ini menandakan bahwa perbedaan tidak jauh, namun terdapat tanda-tanda bahwa model mengalami sedikit *overfitting*.
 Untuk visualisasi mengenai hasil pemodelan ini dapat dilihat pada gambar di bawah ini.
 
-
+![image](https://user-images.githubusercontent.com/56476347/186469485-b47045aa-ddc9-472c-932d-b9a79b9aa4df.png)
 
 Hasil pengujian model terhadap sebuah user dapat dilihat pada skenario di bawah ini.
 ```
