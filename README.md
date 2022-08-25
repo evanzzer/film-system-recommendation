@@ -5,7 +5,7 @@
 Seiring dengan berjalannya waktu, teknologi digital tentu telah berkembang dengan pesat, termasuk di dunia media digital. 
 Menonton Film dari Kaset Radio, ataupun CD/DVD sudah tidak relevan lagi dalam dunia ini. 
 Tentu laman web seperti Netflix, Youtube, Amazon Prime dll. sudah tidak asing lagi untuk didengar. 
-Laman web tersebut merupakan platform penyedia film yang dapat ditonton secara online di manapun dan kapanpun.
+Laman web tersebut merupakan platform penyedia film yang dapat ditonton secara online di manapun dan kapanpun [1](https://labelyourdata.com/articles/movie-recommendation-with-machine-learning).
 
 Misalkan Youtube, ketika sedang menonton beberapa video atau film dengan konten yang mirip, Youtube akan memberikan rekomendasi beberapa video atau film lain yang mungkin disukai.
 Sistem rekomendasi tersebut merupakan sebuah sistem dengan model yang telah dirancang dengan menggunakan Machine Learning.
@@ -64,12 +64,39 @@ Untuk itu, pada `ratings_small.csv`, kolom-kolom yang akan digunakan adalah `use
 Pertama-tama, dataset diolah supaya hanya kolom-kolom yang digunakan yang akan disisakan. 
 Sehingga, dataset `movie` hanya akan memiliki kolom `id`, `title`, dan `genres`. Sedangkan, dataset `rating` hanya akan memiliki kolom `userId`, `movieId`, dan `rating`.
 
+Table `movieId`
+|	 id	  |         title	              | genres                                            |
+|:------|:----------------------------|:--------------------------------------------------|
+| 862	  | Toy Story	                  | [{'id': 16, 'name': 'Animation'}, {'id': 35, '... |
+| 8844  | Jumanji	                    | [{'id': 12, 'name': 'Adventure'}, {'id': 14, '... |
+| 15602 | Grumpier Old Men            |	[{'id': 10749, 'name': 'Romance'}, {'id': 35, ... |
+| 31357 | Waiting to Exhale           |	[{'id': 35, 'name': 'Comedy'}, {'id': 18, 'nam... |
+| 11862 | Father of the Bride Part II |	[{'id': 35, 'name': 'Comedy'}]                    |
+
+Table `rating`
+| userId | movieId | rating |
+|:------:|:-------:|:------:|
+| 1	     | 31      | 2.5    |
+|	1	     | 1029	   | 3.0    |
+|	1	     | 1061	   | 3.0    |
+|	1	     | 1129	   | 2.0    |
+|	1	     | 1172	   | 4.0    |
+
 Setelah hal tersebut dilakukan, maka terlebih dahulu kita cek apakah terdapat data yang null. Terlihat bahwa kolom yang akan digunakan tidak memiliki data null sehingga tidak perlu dilakukan tindakan lebih lanjut.
 
 Kemudian, kita akan memperbaiki data yang terdapat pada kolom `genres` dalam dataset `movie`.
 Jika dilihat, dataset `genres` memiliki format JSON. 
 Format JSON tersebut juga menggunakan tanda petik satu (`'`) sehingga perlu dilakukan pengolahan data dengan melakukan konversi dari tanda petik satu (`'`) menjadi petik dua (`"`).
-Hal ini dilakukan agar ketika melakukan parsing JSON, maka data dalam kolom `genres` dapat dibaca dan nama dari genres dapat dikeluarkan dan digabungkan menjadi satu.
+Hal ini dilakukan agar ketika melakukan parsing JSON, maka data dalam kolom `genres` dapat dibaca dan nama dari genres dapat dikeluarkan dan digabungkan menjadi satu. Hasilnya akan menjadi seperti pada tabel di bawah ini.
+
+Table `movieId`
+|	 id	  |         title	              | genres                     |
+|:------|:----------------------------|:---------------------------|
+| 862	  | Toy Story	                  | Animation, Comedy, Family  |
+| 8844  | Jumanji	                    | Adventure, Fantasy, Family |
+| 15602 | Grumpier Old Men            |	Romance, Comedy            |
+| 31357 | Waiting to Exhale           |	Comedy, Drama, Romance     |
+| 11862 | Father of the Bride Part II |	Comedy                     |
 
 Selanjutnya, keunikan dalam dataset `movie` akan diuji. Setelah ditelusuri dengan menghitung jumlah nilai unik dari kolom `id`, ternyata ada beberapa data yang terduplikasi.
 Untuk itu, maka data yang diduplikasi dihilangkan dengan menggunakan fungsi `drop_duplicates()` dari library Pandas.
@@ -103,7 +130,7 @@ Kemudian model dilakukan proses training dengan data yang telah diolah dan param
 
 ## Evaluation
 
-Metrik yang akan digunakan merupakan `RMS Error` atau *Root Mean Squared Error*. Metrik ini menjelaskan selisih jarak antara hasil prediksi dengan nilai sebenarnya.
+Metrik yang akan digunakan merupakan `RMS Error` atau *Root Mean Squared Error*. Metrik ini menjelaskan selisih jarak antara hasil prediksi dengan nilai sebenarnya [2](https://towardsdatascience.com/what-does-rmse-really-mean-806b65f2e48e).
 Rumus dari RMSE ini dapat dilihat di bawah ini.
 
 <img width="564" alt="image" src="https://user-images.githubusercontent.com/56476347/186470142-0a577f95-fe41-4c42-a101-09654aea424d.png">
@@ -151,7 +178,10 @@ Skenario ini menjelaskan bahwa user dengan ID 580 menyukai film *Comedy*, *Drama
 Oleh karena itu, model merekomendasikan film *Drama*, *Comedy*, dan *Romance* serta genre-genre lain yang mungkin user tersebut tertarik dan ingin menontonnya.
 Kebanyakan film tersebut memiliki genre yang sesuai sehingga dapat dikatakan bahwa sistem rekomendasi ini dapat berjalan dengan baik.
 
+## Kesimpulan
+
+Dari hasil yang telah diuji, dapat ditarik kesimpulan bahwa dengan menggunakan *Collaborative Filtering*, dapat menggunakan _user_ dan _movie_ sebagai input, dan _rating_ sebagai output yang akan diprediksi untuk melakukan prediksi berbagai film yang belum pernah ditonton oleh user. Hasil prediksi tersebut kemudian diurutkan berdasarkan prediksi rating tertinggi untuk ditampilkan sebagai film rekomendasi yang berpotensi dapat disukai oleh user tersebut.
+
 **Referensi:**
-- [Kaggle - The Movies Dataset](https://www.kaggle.com/datasets/rounakbanik/the-movies-dataset)
-- [What is a Movie Recommendation System in ML?](https://labelyourdata.com/articles/movie-recommendation-with-machine-learning)
-- [What does RMSE really mean?](https://towardsdatascience.com/what-does-rmse-really-mean-806b65f2e48e)
+[1] Y. Kniazieva, “What Is a Movie Recommendation System in ML?,” LabelYourData, Apr. 12, 2022. https://labelyourdata.com/articles/movie-recommendation-with-machine-learning (accessed Aug. 25, 2022).
+[2] J. Moody, “What does RMSE really mean?,” Towards Data Science, Sep. 06, 2019. https://towardsdatascience.com/what-does-rmse-really-mean-806b65f2e48e (accessed Aug. 25, 2022).
