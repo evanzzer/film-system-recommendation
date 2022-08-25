@@ -183,5 +183,7 @@ Kebanyakan film tersebut memiliki genre yang sesuai sehingga dapat dikatakan bah
 Dari hasil yang telah diuji, dapat ditarik kesimpulan bahwa dengan menggunakan *Collaborative Filtering*, dapat menggunakan _user_ dan _movie_ sebagai input, dan _rating_ sebagai output yang akan diprediksi untuk melakukan prediksi berbagai film yang belum pernah ditonton oleh user. Hasil prediksi tersebut kemudian diurutkan berdasarkan prediksi rating tertinggi untuk ditampilkan sebagai film rekomendasi yang berpotensi dapat disukai oleh user tersebut.
 
 **Referensi:**
+
 [1] Y. Kniazieva, “What Is a Movie Recommendation System in ML?,” LabelYourData, Apr. 12, 2022. https://labelyourdata.com/articles/movie-recommendation-with-machine-learning (accessed Aug. 25, 2022).
+
 [2] J. Moody, “What does RMSE really mean?,” Towards Data Science, Sep. 06, 2019. https://towardsdatascience.com/what-does-rmse-really-mean-806b65f2e48e (accessed Aug. 25, 2022).
