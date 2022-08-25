@@ -128,26 +128,6 @@ Setelah dirancang, model diinisiasikan dan dilakukan *compiling* dengan `BinaryC
 serta menggunakan metrik `RMS Error` untuk menguji akurasi dari model yang akan dibuat. 
 Kemudian model dilakukan proses training dengan data yang telah diolah dan parameter konfigurasinya adalah `batch_size` sebesar 32 dan `epochs` sebanyak 100.
 
-## Evaluation
-
-Metrik yang akan digunakan merupakan `RMS Error` atau *Root Mean Squared Error*. Metrik ini menjelaskan selisih jarak antara hasil prediksi dengan nilai sebenarnya [[2]](https://towardsdatascience.com/what-does-rmse-really-mean-806b65f2e48e).
-Rumus dari RMSE ini dapat dilihat di bawah ini.
-
-<img width="564" alt="image" src="https://user-images.githubusercontent.com/56476347/186470142-0a577f95-fe41-4c42-a101-09654aea424d.png">
-
-Hasil training epoch ke-100 menunjukkan data seperti berikut ini.
-```
-Epoch 100/100
-1125/1125 [==============================] - 6s 5ms/step - loss: 0.5841 - root_mean_squared_error: 0.1894 - val_loss: 0.6320 - val_root_mean_squared_error: 0.2412
-```
-
-Dari metrik tersebut, dapat terlihat bahwa loss yang didapatkan sebesar 0.5841 dengan RMSE sebesar 0.1894 pada data training.
-Loss sebesar 0.6320 dengan RMSE sebesar 0.2412 didapatkan pada data testing. 
-Hal ini menandakan bahwa perbedaan tidak jauh, namun terdapat tanda-tanda bahwa model mengalami sedikit *overfitting*.
-Untuk visualisasi mengenai hasil pemodelan ini dapat dilihat pada gambar di bawah ini.
-
-![image](https://user-images.githubusercontent.com/56476347/186469485-b47045aa-ddc9-472c-932d-b9a79b9aa4df.png)
-
 Hasil pengujian model terhadap sebuah user dapat dilihat pada skenario di bawah ini.
 ```
 Showing recommendations for users: 580
@@ -174,8 +154,52 @@ Deadlier Than the Male : Action, Comedy, Thriller
 Long Pigs : Crime, Horror
 ```
 
-Skenario ini menjelaskan bahwa user dengan ID 580 menyukai film *Comedy*, *Drama*, dan *Romance*, ditandai dengan rating yang tinggi pada film dengan genre tersebut.
-Oleh karena itu, model merekomendasikan film *Drama*, *Comedy*, dan *Romance* serta genre-genre lain yang mungkin user tersebut tertarik dan ingin menontonnya.
+## Evaluation
+
+Metrik yang akan digunakan merupakan `RMS Error` atau *Root Mean Squared Error*. Metrik ini menjelaskan selisih jarak antara hasil prediksi dengan nilai sebenarnya [[2]](https://towardsdatascience.com/what-does-rmse-really-mean-806b65f2e48e).
+Rumus dari RMSE ini dapat dilihat di bawah ini.
+
+<img width="564" alt="image" src="https://user-images.githubusercontent.com/56476347/186470142-0a577f95-fe41-4c42-a101-09654aea424d.png">
+
+Hasil training epoch ke-100 menunjukkan data seperti berikut ini.
+```
+Epoch 100/100
+1125/1125 [==============================] - 6s 5ms/step - loss: 0.5841 - root_mean_squared_error: 0.1894 - val_loss: 0.6320 - val_root_mean_squared_error: 0.2412
+```
+
+Dari metrik tersebut, dapat terlihat bahwa loss yang didapatkan sebesar 0.5841 dengan RMSE sebesar 0.1894 pada data training.
+Loss sebesar 0.6320 dengan RMSE sebesar 0.2412 didapatkan pada data testing. 
+Hal ini menandakan bahwa perbedaan tidak jauh, namun terdapat tanda-tanda bahwa model mengalami sedikit *overfitting*.
+Untuk visualisasi mengenai hasil pemodelan ini dapat dilihat pada gambar di bawah ini.
+
+![image](https://user-images.githubusercontent.com/56476347/186469485-b47045aa-ddc9-472c-932d-b9a79b9aa4df.png)
+
+Sekarang, saatnya melakukan evaluasi terhadap hasil output dari pengujian model yang outputnya sudah dilampirkan dalam bagian **Modelling**.
+
+```
+Sleepless in Seattle : Comedy, Drama, Romance
+High Noon : Western
+Wish You Were Here : Comedy, Drama, Foreign, Romance
+License to Wed : Comedy
+Confession of a Child of the Century : Drama
+```
+
+Skenario ini menjelaskan bahwa user tersebut menyukai film *Comedy*, *Drama*, dan *Romance*, ditandai dengan rating yang tinggi pada film dengan genre tersebut. 
+Oleh karena itu, model seharusnya merekomendasi film *Drama*, *Comedy*, dan *Romance*.
+Hasil yang dikeluarkan oleh model sebagai prediksi film yang mungkin tertarik oleh user tersebut dapat dilihat pada list di bawah ini.
+
+- The Celebration : **Drama**
+- The Sugarland Express : Crime, **Drama**
+- Gentlemen Prefer Blondes : **Comedy**, **Romance**
+- Wuthering Heights : **Drama**, **Romance**
+- The Enforcer : **Drama**, Action, Crime
+- Before Sunset : **Drama**, Romance
+- Tokyo! : **Romance**, **Drama**
+- The Hunter : **Drama**, Thriller
+- Deadlier Than the Male : Action, **Comedy**, Thriller
+- Long Pigs : Crime, Horror
+
+Dapat terlihat bahwa model merekomendasi film *Drama*, *Comedy*, dan *Romance* serta genre-genre lain yang mungkin user tersebut tertarik dan ingin menontonnya.
 Kebanyakan film tersebut memiliki genre yang sesuai sehingga dapat dikatakan bahwa sistem rekomendasi ini dapat berjalan dengan baik.
 
 ## Kesimpulan
