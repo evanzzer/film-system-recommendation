@@ -5,7 +5,7 @@
 Seiring dengan berjalannya waktu, teknologi digital tentu telah berkembang dengan pesat, termasuk di dunia media digital. 
 Menonton Film dari Kaset Radio, ataupun CD/DVD sudah tidak relevan lagi dalam dunia ini. 
 Tentu laman web seperti Netflix, Youtube, Amazon Prime dll. sudah tidak asing lagi untuk didengar. 
-Laman web tersebut merupakan platform penyedia film yang dapat ditonton secara online di manapun dan kapanpun [1](https://labelyourdata.com/articles/movie-recommendation-with-machine-learning).
+Laman web tersebut merupakan platform penyedia film yang dapat ditonton secara online di manapun dan kapanpun [[1]](https://labelyourdata.com/articles/movie-recommendation-with-machine-learning).
 
 Misalkan Youtube, ketika sedang menonton beberapa video atau film dengan konten yang mirip, Youtube akan memberikan rekomendasi beberapa video atau film lain yang mungkin disukai.
 Sistem rekomendasi tersebut merupakan sebuah sistem dengan model yang telah dirancang dengan menggunakan Machine Learning.
@@ -130,7 +130,7 @@ Kemudian model dilakukan proses training dengan data yang telah diolah dan param
 
 ## Evaluation
 
-Metrik yang akan digunakan merupakan `RMS Error` atau *Root Mean Squared Error*. Metrik ini menjelaskan selisih jarak antara hasil prediksi dengan nilai sebenarnya [2](https://towardsdatascience.com/what-does-rmse-really-mean-806b65f2e48e).
+Metrik yang akan digunakan merupakan `RMS Error` atau *Root Mean Squared Error*. Metrik ini menjelaskan selisih jarak antara hasil prediksi dengan nilai sebenarnya [[2]](https://towardsdatascience.com/what-does-rmse-really-mean-806b65f2e48e).
 Rumus dari RMSE ini dapat dilihat di bawah ini.
 
 <img width="564" alt="image" src="https://user-images.githubusercontent.com/56476347/186470142-0a577f95-fe41-4c42-a101-09654aea424d.png">
