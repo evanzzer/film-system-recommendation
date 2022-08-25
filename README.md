@@ -65,7 +65,7 @@ Pertama-tama, dataset diolah supaya hanya kolom-kolom yang digunakan yang akan d
 Sehingga, dataset `movie` hanya akan memiliki kolom `id`, `title`, dan `genres`. Sedangkan, dataset `rating` hanya akan memiliki kolom `userId`, `movieId`, dan `rating`.
 
 Table `movieId`
-|	 id	  |         title	              | genres                                            |
+|	id	  | title	                      | genres                                            |
 |:------|:----------------------------|:--------------------------------------------------|
 | 862	  | Toy Story	                  | [{'id': 16, 'name': 'Animation'}, {'id': 35, '... |
 | 8844  | Jumanji	                    | [{'id': 12, 'name': 'Adventure'}, {'id': 14, '... |
